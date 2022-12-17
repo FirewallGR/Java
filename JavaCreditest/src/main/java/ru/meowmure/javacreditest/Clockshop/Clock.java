@@ -6,12 +6,17 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import ru.meowmure.javacreditest.Exceptions.IncorrectNumberException;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+@Entity
+@Table(name = "clocks")
 public class Clock implements Serializable {
-    private transient ClockPane clockPane;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private transient int id;
     @Expose
     private String name;
     @Expose
@@ -30,6 +35,7 @@ public class Clock implements Serializable {
     private GregorianCalendar timeStart;
     @Expose
     private GregorianCalendar timeEnd;
+    private transient ClockPane clockPane;
 
     public Clock() {
 
@@ -42,6 +48,12 @@ public class Clock implements Serializable {
         blue = color.getBlue();
     }
 
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() { return name; }
 
     public void setName(String name) {
@@ -89,6 +101,40 @@ public class Clock implements Serializable {
 
     public void setSeconds(int seconds) { this.seconds = seconds; }
 
+    @SuppressWarnings("JpaAttributeMemberSignatureInspection")
+    public long getLongTimeStart() {
+        return timeStart.getTime().getTime();
+    }
+
+    public void setLongTimeStart(long millis) {
+        timeStart = new GregorianCalendar();
+        timeStart.getTime().setTime(millis);
+    }
+
+    public int getFinalHours() {
+        return finalHours;
+    }
+
+    public void setFinalHours(int finalHours) {
+        this.finalHours = finalHours;
+    }
+
+    public int getFinalMinutes() {
+        return finalMinutes;
+    }
+
+    public void setFinalMinutes(int finalMinutes) {
+        this.finalMinutes = finalMinutes;
+    }
+
+    public int getFinalSeconds() {
+        return finalSeconds;
+    }
+
+    public void setFinalSeconds(int finalSeconds) {
+        this.finalSeconds = finalSeconds;
+    }
+
     public void setTime(int hours, int minutes, int seconds) {
         finalSeconds = seconds;
         finalMinutes = minutes;
@@ -100,6 +146,7 @@ public class Clock implements Serializable {
         clockPane = new ClockPane(group, this, Color.color(red, green, blue));
     }
 
+    @SuppressWarnings("JpaAttributeTypeInspection")
     public ClockPane getClockPane() {
         return clockPane;
     }
@@ -115,6 +162,7 @@ public class Clock implements Serializable {
         hours = timeEnd.get(Calendar.HOUR) - timeStart.get(Calendar.HOUR) + finalHours;
         clockPane.PaintClock(hours, minutes, seconds);
     }
+
 
     @Override
     public String toString() {

@@ -2,11 +2,8 @@ package ru.meowmure.javacreditest.Controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -19,7 +16,6 @@ import javafx.stage.FileChooser;
 import ru.meowmure.javacreditest.ClockShopApplication;
 import ru.meowmure.javacreditest.Clockshop.Clock;
 
-import java.awt.*;
 import java.io.*;
 import java.util.*;
 
@@ -231,11 +227,16 @@ public class GUIController {
     }
 
     public void dataBaseOpen(ActionEvent actionEvent) {
-
+        DBController dbController = new DBController(group);
+        listView.getItems().clear();
+        listView.getItems().setAll(dbController.findAll());
     }
 
     public void dataBaseSave(ActionEvent actionEvent) {
-
+        DBController dbController = new DBController(group);
+        dbController.clear();
+        for (Clock temp:listView.getItems()) {
+            dbController.Save(temp);
+        }
     }
 }
-// TODO: Создать пул брендов, начать сохранение в БД
