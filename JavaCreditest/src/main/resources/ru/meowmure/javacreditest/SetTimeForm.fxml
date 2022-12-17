@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.meowmure.javacreditest.Controllers.TimeController">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="214.0" layoutY="46.0" prefHeight="26.0" prefWidth="172.0" text="Choose time to set">
+         <font>
+            <Font name="Calibri Light" size="22.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="248.0" layoutY="81.0" prefHeight="30.0" prefWidth="105.0" text="Hours">
+         <font>
+            <Font name="Calibri Light" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldAllHours" layoutX="254.0" layoutY="119.0" prefHeight="25.0" prefWidth="100.0" />
+      <Label alignment="CENTER" layoutX="252.0" layoutY="158.0" prefHeight="30" prefWidth="105" text="Minutes">
+         <font>
+            <Font name="Calibri Light" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldAllMins" layoutX="255.0" layoutY="200.0" prefHeight="25" prefWidth="100" />
+      <Label alignment="CENTER" layoutX="252.0" layoutY="239.0" prefHeight="30" prefWidth="105" text="Seconds">
+         <font>
+            <Font name="Calibri Light" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldAllSecs" layoutX="255.0" layoutY="279.0" prefHeight="25" prefWidth="100" />
+      <Button fx:id="buttonConfirm" layoutX="255.0" layoutY="328.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30" prefWidth="100" text="Confirm">
+         <font>
+            <Font name="Calibri Light" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
