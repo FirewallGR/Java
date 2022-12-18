@@ -3,16 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="440" prefWidth="120" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.meowmure.javacreditest.Controllers.ItemController">
+<AnchorPane prefHeight="440" prefWidth="120" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.meowmure.javacreditest.Controllers.ItemController">
    <children>
       <Label alignment="CENTER" layoutX="29.0" layoutY="240.0" prefHeight="17.0" prefWidth="59.0" text="Name" />
       <TextField fx:id="name" layoutX="14.0" layoutY="260.0" prefHeight="25.0" prefWidth="90.0" />
       <Label layoutX="152.0" layoutY="240.0" text="Clock Type" />
       <Label layoutX="30.0" layoutY="300.0" text="Clock mark" />
-      <TextField fx:id="mark" layoutX="14.0" layoutY="320.0" prefHeight="25.0" prefWidth="90.0" />
       <Label layoutX="152.0" layoutY="300.0" text="Clock price" />
       <TextField fx:id="price" layoutX="136.0" layoutY="320.0" prefHeight="25.0" prefWidth="90.0" />
       <CheckBox fx:id="type" layoutX="135.0" layoutY="264.0" mnemonicParsing="false" text="With seconds" />
       <Button fx:id="buttonCreate" layoutX="94.0" layoutY="361.0" mnemonicParsing="false" onAction="#create" text="Create" />
+      <ChoiceBox fx:id="brandsChoiceBox" layoutX="15.0" layoutY="320.0" prefHeight="25.0" prefWidth="90.0" onAction="#onMarkSelected" />
    </children>
 </AnchorPane>

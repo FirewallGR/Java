@@ -142,6 +142,12 @@ public class Clock implements Serializable {
         timeStart = new GregorianCalendar();
     }
 
+    public void setColor(Color color) {
+        red = color.getRed();
+        blue = color.getBlue();
+        green = color.getGreen();
+    }
+
     public void clockRestored(Group group) {
         clockPane = new ClockPane(group, this, Color.color(red, green, blue));
     }

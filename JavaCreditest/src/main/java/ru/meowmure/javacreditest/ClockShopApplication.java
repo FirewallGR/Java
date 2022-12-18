@@ -1,7 +1,10 @@
 package ru.meowmure.javacreditest;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -16,6 +19,7 @@ public class ClockShopApplication extends Application {
     public GUIController GUIcontroller;
     public ItemController itemController;
     public TimeController timeController;
+    private Group group;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -31,6 +35,7 @@ public class ClockShopApplication extends Application {
             mainStage.setScene(mainScene);
             GUIcontroller = loader.getController();
             GUIcontroller.setApp(this);
+            GUIcontroller.defaultClockBrands();
             mainStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

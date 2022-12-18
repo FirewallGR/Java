@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import ru.meowmure.javacreditest.ClockShopApplication;
 import ru.meowmure.javacreditest.Clockshop.Clock;
+import ru.meowmure.javacreditest.Exceptions.IncorrectNumberException;
 
 import java.io.*;
 import java.util.*;
@@ -68,9 +69,7 @@ public class GUIController {
 
     private ClockShopApplication app;
 
-    public void setApp(ClockShopApplication app) {
-        this.app = app;
-    }
+    public void setApp(ClockShopApplication app) { this.app = app; }
 
     public void setListView(ListView<Clock> listView) {
         this.listView = listView;
@@ -237,6 +236,53 @@ public class GUIController {
         dbController.clear();
         for (Clock temp:listView.getItems()) {
             dbController.Save(temp);
+        }
+    }
+
+    public void defaultClockBrands() {
+        try {
+            Color colorRolex = Color.GOLD;
+            Clock clockRolex = new Clock(group, colorRolex);
+            clockRolex.setName("Day Date 40");
+            clockRolex.setMark("Rolex");
+            clockRolex.setCost(500000);
+            clockRolex.setTyped(true);
+
+            Color colorPatekPhilippe = Color.GHOSTWHITE;
+            Clock clockPatekPhilippe = new Clock(group, colorPatekPhilippe);
+            clockPatekPhilippe.setName("Nautilus");
+            clockPatekPhilippe.setMark("PatekPhilippe");
+            clockPatekPhilippe.setCost(990000);
+            clockPatekPhilippe.setTyped(true);
+
+            Color colorTAGHeuer = Color.ROYALBLUE;
+            Clock clockTAGheuer = new Clock(group, colorTAGHeuer);
+            clockTAGheuer.setName("Monaco");
+            clockTAGheuer.setMark("TAG Heuer");
+            clockTAGheuer.setCost(478000);
+            clockTAGheuer.setTyped(false);
+
+            Color colorLongines = Color.LIMEGREEN;
+            Clock clockLongines = new Clock(group, colorLongines);
+            clockLongines.setName("Spirit");
+            clockLongines.setMark("Longines");
+            clockLongines.setCost(333600);
+            clockLongines.setTyped(false);
+
+            Color colorAudemarsPiguet = Color.LIGHTSTEELBLUE;
+            Clock clockAudemarsPiguet = new Clock(group, colorAudemarsPiguet);
+            clockAudemarsPiguet.setName("Royal Oak");
+            clockAudemarsPiguet.setMark("Audemars Piguet");
+            clockAudemarsPiguet.setCost(777000);
+            clockAudemarsPiguet.setTyped(true);
+
+            listView.getItems().add(clockRolex);
+            listView.getItems().add(clockPatekPhilippe);
+            listView.getItems().add(clockTAGheuer);
+            listView.getItems().add(clockLongines);
+            listView.getItems().add(clockAudemarsPiguet);
+        } catch (IncorrectNumberException e) {
+            throw new RuntimeException(e);
         }
     }
 }
