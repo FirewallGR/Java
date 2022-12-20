@@ -35,7 +35,7 @@ public class ClockShopApplication extends Application {
             mainStage.setScene(mainScene);
             GUIcontroller = loader.getController();
             GUIcontroller.setApp(this);
-            GUIcontroller.defaultClockBrands();
+            GUIcontroller.defaultClocks();
             mainStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -76,8 +76,7 @@ public class GUIController {
     }
 
     public void add(ActionEvent actionEvent) {
-        Color color = new Random().nextInt(2) == 0 ? Color.AQUA : Color.MAGENTA;
-        Clock clock = new Clock(group, color);
+        Clock clock = new Clock(group);
         app.showAddWindow(clock, listView);
     }
 
@@ -239,49 +238,21 @@ public class GUIController {
         }
     }
 
-    public void defaultClockBrands() {
+    public void defaultClocks (){
         try {
-            Color colorRolex = Color.GOLD;
-            Clock clockRolex = new Clock(group, colorRolex);
-            clockRolex.setName("Day Date 40");
-            clockRolex.setMark("Rolex");
-            clockRolex.setCost(500000);
-            clockRolex.setTyped(true);
-
-            Color colorPatekPhilippe = Color.GHOSTWHITE;
-            Clock clockPatekPhilippe = new Clock(group, colorPatekPhilippe);
-            clockPatekPhilippe.setName("Nautilus");
-            clockPatekPhilippe.setMark("PatekPhilippe");
-            clockPatekPhilippe.setCost(990000);
-            clockPatekPhilippe.setTyped(true);
-
-            Color colorTAGHeuer = Color.ROYALBLUE;
-            Clock clockTAGheuer = new Clock(group, colorTAGHeuer);
-            clockTAGheuer.setName("Monaco");
-            clockTAGheuer.setMark("TAG Heuer");
-            clockTAGheuer.setCost(478000);
-            clockTAGheuer.setTyped(false);
-
-            Color colorLongines = Color.LIMEGREEN;
-            Clock clockLongines = new Clock(group, colorLongines);
-            clockLongines.setName("Spirit");
-            clockLongines.setMark("Longines");
-            clockLongines.setCost(333600);
-            clockLongines.setTyped(false);
-
-            Color colorAudemarsPiguet = Color.LIGHTSTEELBLUE;
-            Clock clockAudemarsPiguet = new Clock(group, colorAudemarsPiguet);
-            clockAudemarsPiguet.setName("Royal Oak");
-            clockAudemarsPiguet.setMark("Audemars Piguet");
-            clockAudemarsPiguet.setCost(777000);
-            clockAudemarsPiguet.setTyped(true);
-
-            listView.getItems().add(clockRolex);
-            listView.getItems().add(clockPatekPhilippe);
-            listView.getItems().add(clockTAGheuer);
-            listView.getItems().add(clockLongines);
-            listView.getItems().add(clockAudemarsPiguet);
-        } catch (IncorrectNumberException e) {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("DefaultClocks.json"));
+            GsonBuilder builder = new GsonBuilder();
+            Gson gson = builder.excludeFieldsWithoutExposeAnnotation().create();
+            String jsonString;
+            jsonString = bufferedReader.readLine();
+            Clock[] arrayClocks = gson.fromJson(jsonString, Clock[].class);
+            for (Clock temp:arrayClocks) {
+                temp.clockRestored(group);
+                listView.getItems().add(temp);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

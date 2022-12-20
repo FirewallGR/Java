@@ -40,6 +40,11 @@ public class Clock implements Serializable {
     public Clock() {
 
     }
+    public Clock(Group group) {
+        clockPane = new ClockPane(group, this);
+        timeStart = new GregorianCalendar();
+    }
+
     public Clock(Group group, Color color) {
         clockPane = new ClockPane(group, this, color);
         timeStart = new GregorianCalendar();
@@ -144,8 +149,9 @@ public class Clock implements Serializable {
 
     public void setColor(Color color) {
         red = color.getRed();
-        blue = color.getBlue();
         green = color.getGreen();
+        blue = color.getBlue();
+        clockPane.setColor(color);
     }
 
     public void clockRestored(Group group) {

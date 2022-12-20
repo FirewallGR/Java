@@ -52,6 +52,8 @@ public class ItemController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "The one of the fields is null or empty").showAndWait();
             return;
         }
+        clock.setMark(brandsChoiceBox.getValue());
+        clock.setColor(brandColors.get(brands.indexOf(brandsChoiceBox.getValue())));
         try {
             clock.setCost(Integer.parseInt(price.getText()));
         } catch ( IncorrectNumberException e) {
@@ -65,8 +67,6 @@ public class ItemController implements Initializable {
         clock.setName(name.getText());
         clock.setTyped(type.isSelected());
 
-        checkMatches();
-
         listView.getItems().add(clock);
 
         returnList();
@@ -74,13 +74,6 @@ public class ItemController implements Initializable {
         ((Stage)(buttonCreate.getScene().getWindow())).close();
     }
 
-    public void checkMatches() {
-        for(Clock temp : listView.getItems()) {
-            if (temp.getMark().compareTo(clock.getMark()) == 0) {
-                clock.setClockPane(temp.getClockPane());
-            }
-        }
-    }
     public void setObject(Clock clock) {
         this.clock = clock;
     }
@@ -92,10 +85,5 @@ public class ItemController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         brandsChoiceBox.getItems().addAll(brands);
-    }
-
-    public void onMarkSelected(ActionEvent actionEvent) {
-        clock.setMark(brandsChoiceBox.getValue());
-        clock.setColor(brandColors.get(brands.indexOf(brandsChoiceBox.getValue())));
     }
 }

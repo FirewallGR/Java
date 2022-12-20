@@ -28,6 +28,15 @@ public class ClockPane {
         this.color = color;
     }
 
+    public ClockPane(Group group, Clock clock) {
+        this.group = group;
+        this.clock = clock;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     public void PaintClock(int hours, int minutes, int seconds) {
         group.getChildren().clear();
 

@@ -13,6 +13,6 @@
       <TextField fx:id="price" layoutX="136.0" layoutY="320.0" prefHeight="25.0" prefWidth="90.0" />
       <CheckBox fx:id="type" layoutX="135.0" layoutY="264.0" mnemonicParsing="false" text="With seconds" />
       <Button fx:id="buttonCreate" layoutX="94.0" layoutY="361.0" mnemonicParsing="false" onAction="#create" text="Create" />
-      <ChoiceBox fx:id="brandsChoiceBox" layoutX="15.0" layoutY="320.0" prefHeight="25.0" prefWidth="90.0" onAction="#onMarkSelected" />
+      <ChoiceBox fx:id="brandsChoiceBox" layoutX="15.0" layoutY="320.0" prefHeight="25.0" prefWidth="90.0"/>
    </children>
 </AnchorPane>
