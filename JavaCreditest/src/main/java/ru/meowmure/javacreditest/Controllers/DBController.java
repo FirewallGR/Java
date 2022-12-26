@@ -1,7 +1,7 @@
 package ru.meowmure.javacreditest.Controllers;
 
 import javafx.scene.Group;
-import ru.meowmure.javacreditest.Clockshop.Clock;
+import ru.meowmure.javacreditest.Model.Clock;
 import ru.meowmure.javacreditest.Exceptions.IncorrectNumberException;
 
 import java.sql.PreparedStatement;

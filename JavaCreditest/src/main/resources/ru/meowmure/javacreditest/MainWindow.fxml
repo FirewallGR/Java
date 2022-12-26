@@ -13,14 +13,14 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
                <Menu mnemonicParsing="false" text="Open">
-                  <MenuItem fx:id="openFile" mnemonicParsing="false" text="From file" onAction="#serializationOpen"/>
-                  <MenuItem fx:id="openJSON" mnemonicParsing="false" text="From JSON" onAction="#JSONOpen"/>
-                  <MenuItem fx:id="openDB" mnemonicParsing="false" text="From DataBase" onAction="#dataBaseOpen" />
+                  <MenuItem fx:id="openFile" mnemonicParsing="false" onAction="#serializationOpen" text="From file" />
+                  <MenuItem fx:id="openJSON" mnemonicParsing="false" onAction="#JSONOpen" text="From JSON" />
+                  <MenuItem fx:id="openDB" mnemonicParsing="false" onAction="#dataBaseOpen" text="From DataBase" />
                </Menu>
-               <Menu mnemonicParsing="false" text="Save" onAction="#serializationSave">
-                  <MenuItem fx:id="saveFile" mnemonicParsing="false" text="In File" onAction="#serializationSave"/>
-                  <MenuItem fx:id="saveJSON" mnemonicParsing="false" text="In JSON" onAction="#JSONSave"/>
-                  <MenuItem fx:id="saveDB" mnemonicParsing="false" text="In DataBase" onAction="#dataBaseSave"/>
+               <Menu mnemonicParsing="false" onAction="#serializationSave" text="Save">
+                  <MenuItem fx:id="saveFile" mnemonicParsing="false" onAction="#serializationSave" text="In File" />
+                  <MenuItem fx:id="saveJSON" mnemonicParsing="false" onAction="#JSONSave" text="In JSON" />
+                  <MenuItem fx:id="saveDB" mnemonicParsing="false" onAction="#dataBaseSave" text="In DataBase" />
                </Menu>
             </items>
           </Menu>
@@ -140,19 +140,7 @@
                <bottom>
                   <FlowPane alignment="BOTTOM_LEFT" prefHeight="180.0" prefWidth="208.0" rowValignment="BOTTOM" BorderPane.alignment="BOTTOM_CENTER">
                      <children>
-                        <Button fx:id="add" mnemonicParsing="false" onAction="#add" prefWidth="52.0" text="Add" textAlignment="CENTER">
-                           <font>
-                              <Font name="Calibri Light" size="16.0" />
-                           </font></Button>
-                        <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="52.0" text="Button">
-                           <font>
-                              <Font name="Calibri Light" size="16.0" />
-                           </font></Button>
-                        <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="52.0" text="Button">
-                           <font>
-                              <Font name="Calibri Light" size="16.0" />
-                           </font></Button>
-                        <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="52.0" text="Button">
+                        <Button fx:id="add" mnemonicParsing="false" onAction="#add" prefHeight="28.0" prefWidth="200.0" text="Add" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Light" size="16.0" />
                            </font></Button>

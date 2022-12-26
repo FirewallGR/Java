@@ -1,4 +1,4 @@
-package ru.meowmure.javacreditest.Clockshop;
+package ru.meowmure.javacreditest.Model;
 
 
 import com.google.gson.annotations.Expose;
@@ -15,7 +15,7 @@ import java.util.GregorianCalendar;
 @Table(name = "clocks")
 public class Clock implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private transient int id;
     @Expose
     private String name;
@@ -46,6 +46,18 @@ public class Clock implements Serializable {
         red = color.getRed();
         green = color.getGreen();
         blue = color.getBlue();
+    }
+
+    public Clock(Group group) {
+        clockPane = new ClockPane(group, this);
+        timeStart = new GregorianCalendar();
+    }
+
+    public void setColor(Color color) {
+        red = color.getRed();
+        green = color.getGreen();
+        blue = color.getBlue();
+        clockPane.setColor(color);
     }
 
     public int getId() {

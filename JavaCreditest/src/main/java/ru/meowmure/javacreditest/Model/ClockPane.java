@@ -1,4 +1,4 @@
-package ru.meowmure.javacreditest.Clockshop;
+package ru.meowmure.javacreditest.Model;
 
 import javafx.animation.*;
 import javafx.scene.Group;
@@ -10,8 +10,6 @@ import javafx.scene.text.Font;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-import java.io.Serializable;
-
 public class ClockPane {
     private Group group;
     private Clock clock;
@@ -22,9 +20,16 @@ public class ClockPane {
     private double width = 350, height = 350;
 
 
+    public ClockPane(Group group, Clock clock) {
+        this.group = group;
+        this.clock = clock;
+    }
     public ClockPane(Group group, Clock clock, Color color){
         this.group = group;
         this.clock = clock;
+        this.color = color;
+    }
+    public void setColor(Color color) {
         this.color = color;
     }
 

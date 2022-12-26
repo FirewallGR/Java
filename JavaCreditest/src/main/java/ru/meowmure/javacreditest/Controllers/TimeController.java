@@ -2,15 +2,12 @@ package ru.meowmure.javacreditest.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import ru.meowmure.javacreditest.ClockShopApplication;
-import ru.meowmure.javacreditest.Clockshop.Clock;
+import ru.meowmure.javacreditest.Model.Clock;
 
 public class TimeController {
     @FXML
